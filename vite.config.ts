@@ -23,4 +23,17 @@ export default defineConfig({
       '@tabler/icons-react': '@tabler/icons-react/dist/esm/icons/index.mjs',
     },
   },
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    allowedHosts: [
+      'shadcn-admin.local',
+      'localhost'
+    ],
+    hmr: {
+      protocol: 'ws',
+      host: process.env.HMR_HOST || 'shadcn-admin.local', // Change this to your LAN-accessible hostname
+      port: process.env.HMR_PORT || 5173,
+    },
+  }
 })
